@@ -8,6 +8,8 @@ target 'BBSApp' do
   # Pods for BBSApp
   pod 'Firebase'
   pod 'Firebase/Database'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
   target 'BBSAppTests' do
     inherit! :search_paths

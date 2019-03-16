@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B185502222FEB5400437173 /* MakeRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B185501222FEB5400437173 /* MakeRoomViewController.swift */; };
+		2B1855082230034900437173 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B1855072230034900437173 /* GoogleService-Info.plist */; };
 		2BF2997922196D8D00EB7B14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF2997822196D8D00EB7B14 /* AppDelegate.swift */; };
 		2BF2997B22196D8D00EB7B14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF2997A22196D8D00EB7B14 /* ViewController.swift */; };
 		2BF2997E22196D8D00EB7B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF2997C22196D8D00EB7B14 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		1BA77B74A4DAB5D1869C512A /* Pods-BBSAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBSAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBSAppTests/Pods-BBSAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		2B185501222FEB5400437173 /* MakeRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRoomViewController.swift; sourceTree = "<group>"; };
+		2B1855072230034900437173 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2BF2997522196D8D00EB7B14 /* BBSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF2997822196D8D00EB7B14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BF2997A22196D8D00EB7B14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,11 +119,13 @@
 			isa = PBXGroup;
 			children = (
 				2BF2997822196D8D00EB7B14 /* AppDelegate.swift */,
+				2B185501222FEB5400437173 /* MakeRoomViewController.swift */,
 				2BF2997A22196D8D00EB7B14 /* ViewController.swift */,
 				2BF2997C22196D8D00EB7B14 /* Main.storyboard */,
 				2BF2997F22196D8F00EB7B14 /* Assets.xcassets */,
 				2BF2998122196D8F00EB7B14 /* LaunchScreen.storyboard */,
 				2BF2998422196D8F00EB7B14 /* Info.plist */,
+				2B1855072230034900437173 /* GoogleService-Info.plist */,
 			);
 			path = BBSApp;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF2998322196D8F00EB7B14 /* LaunchScreen.storyboard in Resources */,
+				2B1855082230034900437173 /* GoogleService-Info.plist in Resources */,
 				2BF2998022196D8F00EB7B14 /* Assets.xcassets in Resources */,
 				2BF2997E22196D8D00EB7B14 /* Main.storyboard in Resources */,
 			);
@@ -371,7 +378,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BBSApp/Pods-BBSApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -379,7 +390,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -396,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF2997B22196D8D00EB7B14 /* ViewController.swift in Sources */,
+				2B185502222FEB5400437173 /* MakeRoomViewController.swift in Sources */,
 				2BF2997922196D8D00EB7B14 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
