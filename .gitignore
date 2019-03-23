@@ -2,8 +2,6 @@
 # Created by https://www.gitignore.io/api/swift,xcode
 # Edit at https://www.gitignore.io/?templates=swift,xcode
 
-BBSApp/GoogleService-Info.plist
-
 ### Swift ###
 # Xcode
 #
@@ -136,7 +134,7 @@ iOSInjectionProject/
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
-
+GoogleService-Info.plist
 
 ### Xcode Patch ###
 *.xcodeproj/*

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B185502222FEB5400437173 /* MakeRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B185501222FEB5400437173 /* MakeRoomViewController.swift */; };
 		2B1855082230034900437173 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B1855072230034900437173 /* GoogleService-Info.plist */; };
+		2B18550A223CD7A100437173 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B185509223CD7A100437173 /* RoomViewController.swift */; };
 		2BF2997922196D8D00EB7B14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF2997822196D8D00EB7B14 /* AppDelegate.swift */; };
 		2BF2997B22196D8D00EB7B14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF2997A22196D8D00EB7B14 /* ViewController.swift */; };
 		2BF2997E22196D8D00EB7B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF2997C22196D8D00EB7B14 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		1BA77B74A4DAB5D1869C512A /* Pods-BBSAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBSAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBSAppTests/Pods-BBSAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		2B185501222FEB5400437173 /* MakeRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRoomViewController.swift; sourceTree = "<group>"; };
 		2B1855072230034900437173 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2B185509223CD7A100437173 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		2BF2997522196D8D00EB7B14 /* BBSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF2997822196D8D00EB7B14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BF2997A22196D8D00EB7B14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				2BF2997822196D8D00EB7B14 /* AppDelegate.swift */,
 				2B185501222FEB5400437173 /* MakeRoomViewController.swift */,
 				2BF2997A22196D8D00EB7B14 /* ViewController.swift */,
+				2B185509223CD7A100437173 /* RoomViewController.swift */,
 				2BF2997C22196D8D00EB7B14 /* Main.storyboard */,
 				2BF2997F22196D8F00EB7B14 /* Assets.xcassets */,
 				2BF2998122196D8F00EB7B14 /* LaunchScreen.storyboard */,
@@ -413,6 +416,7 @@
 				2BF2997B22196D8D00EB7B14 /* ViewController.swift in Sources */,
 				2B185502222FEB5400437173 /* MakeRoomViewController.swift in Sources */,
 				2BF2997922196D8D00EB7B14 /* AppDelegate.swift in Sources */,
+				2B18550A223CD7A100437173 /* RoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
