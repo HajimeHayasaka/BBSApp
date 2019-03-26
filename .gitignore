@@ -134,8 +134,6 @@ iOSInjectionProject/
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
-GoogleService-Info.plist
-
 ### Xcode Patch ###
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
@@ -146,3 +144,5 @@ GoogleService-Info.plist
 
 # End of https://www.gitignore.io/api/swift,xcode
 
+# Google Service Ploperty
+GoogleService-Info.plist
