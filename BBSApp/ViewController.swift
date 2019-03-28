@@ -13,52 +13,27 @@ import FirebaseFirestore
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var tableView: UITableView!
-    var tableList: [String] = ["a", "b", "c"]
     var toolbar: UIToolbar!
     var rooms: [Room] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Room.CreateNewRoom(name: "test003")
+//        Room.create(name: "test002")
+//        Room.deleteAll(collection: "room")
         
-        print("GetRoomInfo call")
-        Room.GetRoomInfo(name: "room") { (rooms, err) in
-            print("GetRoomInfo nakami")
-            if let err = err {
-                print(err)
-                print("Error!!")
-                return
-            }
-            if let rooms = rooms {
-                print(rooms)
-                print("roomsの件数：\(rooms.count)")
-                self.rooms = rooms
-                self.tableView.reloadData()
-            }
-        }
-        print("GetRoomInfo 通過")
-        
-//        DeleteRoom(db: db, id: "zY9wkP79m2S6QcJHIKWr")
-
-//         // データ更新
-//        db.collection("room").document("png1facJtRLoKifvMvAK").updateData([
-//            "born": FieldValue.delete(),
-//            ]) { err in
-//                if let err = err {
-//                    print("Error updating document: \(err)")
-//                } else {
-//                    print("Document successfully updated")
-//                }
-//        }
-
         view.backgroundColor = UIColor.white
         
-        // 上部のタイトル表示
+        // MARK: ナビゲーションバーの表示変更
+        // タイトルをセット
         title = "BBSアプリ"
-        
-        // ナビゲーションバーの表示変更
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: "MainColor_EG") // ナビゲーションバーの色を変更
+        // ナビゲーションバーの色を変更
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "MainColor_EG")
+        // 作成ボタンを設置（バー右上のボタン）
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "作成", style: .done, target: self, action: #selector(MakeButtunTapped))
+        // 戻るボタンの文字変更（遷移後のバー左上のボタン）
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .done, target: self, action: nil)
+
         
         // ルーム一覧をテーブルビューで表示
         tableView = UITableView()
@@ -74,19 +49,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         toolbar = UIToolbar(frame: CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50))
         toolbar.barTintColor = UIColor(named: "MainColor_EG")
         self.view.addSubview(toolbar)
-
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+        reroad()
+    }
+    
+    @objc func MakeButtunTapped() {
+        print("MakeButtunTapped")
+        let makeRoomVC: MakeRoomViewController = MakeRoomViewController()
+        self.navigationController?.pushViewController(makeRoomVC, animated: true)
+    }
+    
+    // MARK: テーブルビューのセルの高さを設定する
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 200
+            return 100
         }
         return 100
-    }
-    
-    @objc func onClick(sender: UIBarButtonItem) {
-        let secondVC: MakeRoomViewController = MakeRoomViewController()
-        self.navigationController?.pushViewController(secondVC, animated: true)
     }
     
     // MARK: テーブルビューのセルの数を設定する
@@ -111,17 +93,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(roomVC, animated: true)
     }
     
-    /*
-    GetRoomInfo データ取得できていない状態
-    ↓                       ↓
-    別処理
-    ↓                       ↓
-    別処理
-    ↓                       ↓
-    別処理                   completion()
-    ↓                       ↓
-    completion成立          ←
-    ↓
-    */
+    func reroad() {
+        Room.getInfoAll() { (rooms, err) in
+            print("GetRoomInfo nakami")
+            if let err = err {
+                print(err)
+                print("Error!!")
+                return
+            }
+            if let rooms = rooms {
+                print(rooms)
+                print("roomsの件数：\(rooms.count)")
+                self.rooms = rooms
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 

@@ -25,7 +25,7 @@ class Room {
     }
     
     // MARK: 部屋を新規作成（ルームのドキュメントを１つ追加）
-    static func CreateNewRoom(name: String) {
+    static func create(name: String) {
         let db = Firestore.firestore()
         // データ追加
         // Add a new document with a generated ID
@@ -44,7 +44,7 @@ class Room {
     }
     
     // MARK: 部屋を削除（ルームのドキュメントを１つ削除）
-    static func DeleteRoom(id: String) {
+    static func delete(id: String) {
         let db = Firestore.firestore()
         // データ削除
         db.collection("room").document(id).delete() { err in
@@ -57,7 +57,7 @@ class Room {
     }
     
     // MARK: 部屋を全て削除する（ルームのドキュメントを全て削除）
-    static func AllDeleteRoom(collection: String) {
+    static func deleteAll(collection: String) {
         let db = Firestore.firestore()
         // データ取得
         db.collection(collection).getDocuments() { (querySnapshot, err) in
@@ -65,17 +65,17 @@ class Room {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    self.DeleteRoom(id: document.documentID)
+                    self.delete(id: document.documentID)
                 }
             }
         }
     }
     // MARK: 部屋の情報を全て取得する（ルームのドキュメントを全て取得）
     // 非同期時の対策 クロージャ メモリ管理方法でescapingがつかわれる
-    static func GetRoomInfo(name: String, completion: @escaping([Room]?, NSError?) -> Void) {
+    static func getInfoAll(completion: @escaping([Room]?, NSError?) -> Void) {
         let db = Firestore.firestore()
         print("GetRoomInfo メソッド1")
-        db.collection(name).getDocuments() { (querySnapshot, err) in // ここから非同期
+        db.collection("room").getDocuments() { (querySnapshot, err) in // ここから非同期
             print("GetRoomInfo メソッド2")
             if let err = err {
                 completion(nil, err as NSError)
@@ -91,5 +91,19 @@ class Room {
             }
         }
         print("GetRoomInfo メソッド END")
+    }
+    
+    // MARK: ドキュメントの更新
+    static func update(doc: String) {
+        let db = Firestore.firestore()
+        db.collection("room").document("doc").updateData([
+            "born": FieldValue.delete(),
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+        }
     }
 }

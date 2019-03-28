@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firstViewController: ViewController? = ViewController()
         let navigationController = UINavigationController(rootViewController: firstViewController!)
         window!.rootViewController = navigationController
+        // Change the color of NavigationBarText
+        UINavigationBar.appearance().tintColor = UIColor.black
         FirebaseApp.configure()
         return true
     }
