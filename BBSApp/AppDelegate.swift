@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -22,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firstViewController: ViewController? = ViewController()
         let navigationController = UINavigationController(rootViewController: firstViewController!)
         window!.rootViewController = navigationController
-        // Change the color of NavigationBarText
+        // ナビゲーションバーの文字の色はここで変更
         UINavigationBar.appearance().tintColor = UIColor.black
         FirebaseApp.configure()
         return true

@@ -35,31 +35,24 @@ class MakeRoomViewController: UIViewController, UITextFieldDelegate {
         let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(commitButtonTapped(sender:)))
         kbToolBar.items = [spacer, commitButton]
 
-
-        let roomInputLabel = UILabel()
-        roomInputLabel.textColor = UIColor(named: "textGray") // ボタンの色をグレー色（textGray）に設定
-        roomInputLabel.font = UIFont.systemFont(ofSize: 20) // フォントサイズを変更
-        roomInputLabel.frame = CGRect(x: view.frame.width * 0.1, y: view.frame.height * 0.2,
-                                   width: view.frame.width * 0.8, height: view.frame.height * 0.1) // 表示位置を設定
-        roomInputLabel.textAlignment = NSTextAlignment.left // 左寄せ
-        roomInputLabel.text = "ルーム名" // タイトルを設定
-        self.view.addSubview(roomInputLabel)
-        
         roomNameInputField.delegate = self
-        roomNameInputField.keyboardType = UIKeyboardType.default // キーボードのタイプを設定　※数字と小数点のみ「decimalPad」
+        roomNameInputField.borderStyle = UITextField.BorderStyle.roundedRect
+        roomNameInputField.keyboardType = UIKeyboardType.default
         roomNameInputField.frame = CGRect(x: view.frame.width * 0.1, y: view.frame.height * 0.25,
-                                        width: view.frame.width * 0.7, height: view.frame.height * 0.1) // 表示位置を設定
+                                        width: view.frame.width * 0.7, height: 40)
         roomNameInputField.textAlignment = NSTextAlignment.left // 左寄せ
         roomNameInputField.placeholder = "ルーム名を入力" // 未入力の場合の表示文字を設定
         roomNameInputField.inputAccessoryView = kbToolBar // 完了ボタンをセット
         self.view.addSubview(roomNameInputField)
-        
-        // 下線を表示
-        let underLineOfweight =  UIView()
-        underLineOfweight.backgroundColor = UIColor(named: "textGray") // ボタンの色をグレー色（textGray）に設定
-        underLineOfweight.frame = CGRect(x: view.frame.width * 0.1, y: view.frame.height * 1.32,
-                                         width: view.frame.width * 0.8, height: 1.0) // 表示位置を設定
-        self.view.addSubview(underLineOfweight)
+
+        let roomInputLabel = UILabel()
+        roomInputLabel.textColor = UIColor(named: "textGray") // ボタンの色をグレー色（textGray）に設定
+        roomInputLabel.font = UIFont.systemFont(ofSize: 20) // フォントサイズを変更
+        roomInputLabel.frame = CGRect(x: roomNameInputField.frame.origin.x, y: roomNameInputField.frame.origin.y - 20,
+                                      width: roomNameInputField.frame.width, height: 20)
+        roomInputLabel.textAlignment = NSTextAlignment.left // 左寄せ
+        roomInputLabel.text = "ルーム名" // タイトルを設定
+        self.view.addSubview(roomInputLabel)
     }
     
     // ルーム作成完了ボタン押下処理（ナビゲーションバー右上のボタン押下）

@@ -21,13 +21,14 @@ class Comment {
         }
     }
     
-    // MARK: 部屋を新規作成（ルームのドキュメントを１つ追加）
-    static func post(message: String) {
+    // MARK: メッセージ投稿
+    static func post(roomId: String, message: String) {
         let db = Firestore.firestore()
         // データ追加
         // Add a new document with a generated ID
         var ref: DocumentReference? = nil
         ref = db.collection("comment").addDocument(data: [
+            "room_id": roomId,
             "message": message,
             "update_time": FieldValue.serverTimestamp()
         ]) { err in
@@ -39,11 +40,15 @@ class Comment {
         }
     }
     
-    // MARK: 部屋の情報を全て取得する（ルームのドキュメントを全て取得）
+    // MARK: コメント情報を全て取得する（コメントのドキュメントを全て取得）
     // 非同期時の対策 クロージャ メモリ管理方法でescapingがつかわれる
-    static func getInfoAll(completion: @escaping([Comment]?, NSError?) -> Void) {
+    static func getInfoAll(roomId: String, completion: @escaping([Comment]?, NSError?) -> Void) {
         let db = Firestore.firestore()
-        db.collection("comment").getDocuments() { (querySnapshot, err) in // ここから非同期
+        
+//        db.collection(name).whereField(Post.uid, isEqualTo: uid).order(by: createdAt, descending: true).limit(to: 50).getDocuments { (querySnapshot, error) in
+        // whereField はif文のようなもの。
+        // orderはソート。by は何で並び替えるか？　descending true = 降順。　false = 昇順。
+        db.collection("comment").whereField("room_id", isEqualTo: roomId).order(by: "update_time", descending: false).getDocuments() { (querySnapshot, err) in // ここから非同期
             if let err = err {
                 completion(nil, err as NSError)
                 print("Error getting documents: \(err)")
@@ -58,4 +63,33 @@ class Comment {
             }
         }
     }
+    
+    // MARK: コメントを削除（ドキュメントを１つ削除）
+    static func delete(doc: String) {
+        let db = Firestore.firestore()
+        // データ削除
+        db.collection("comment").document(doc).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("DocumentID[\(doc)] successfully removed!")
+            }
+        }
+    }
+    
+    // MARK: コメントを全て削除する（ドキュメントを全て削除）
+    static func deleteAll() {
+        let db = Firestore.firestore()
+        // データ取得
+        db.collection("comment").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.delete(doc: document.documentID)
+                }
+            }
+        }
+    }
+
 }

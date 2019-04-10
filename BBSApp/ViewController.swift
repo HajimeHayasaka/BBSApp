@@ -19,10 +19,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        Room.create(name: "test002")
-//        Room.deleteAll(collection: "room")
-        
         view.backgroundColor = UIColor.white
+        
+//        Room.deleteAll()
+//        Comment.deleteAll()
         
         // MARK: ナビゲーションバーの表示変更
         // タイトルをセット
@@ -34,15 +34,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // 戻るボタンの文字変更（遷移後のバー左上のボタン）
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "戻る", style: .done, target: self, action: nil)
 
-        
         // ルーム一覧をテーブルビューで表示
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         tableView.backgroundColor = UIColor.clear
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CustumTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(CustumTableViewCell.self)) //NSStringFromClass を調べる
         self.view.addSubview(tableView)
         
         // 画面下部のツールバーを表示
@@ -78,18 +76,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: テーブルビューのセルの中身を設定する
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
+        let cell: CustumTableViewCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(CustumTableViewCell.self))! as! CustumTableViewCell
         cell.backgroundColor = UIColor.clear
-        cell.textLabel?.text = rooms[indexPath.row].name
+        cell.timeLabel.text = rooms[indexPath.row].name
         print("indexPath:\(indexPath)")
         print("indexPath.row:\(indexPath.row)")
+        cell.imageView?.image = UIImage(named: "RoomIcon01")
         return cell
     }
     
     // MARK: テーブルビューのセルが押されたら呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.row)番のセルを選択しました！ ")
+        print("roomID: \(rooms[indexPath.row].id)")
         let roomVC: RoomViewController = RoomViewController()
+        roomVC.roomId = rooms[indexPath.row].id
         self.navigationController?.pushViewController(roomVC, animated: true)
     }
     

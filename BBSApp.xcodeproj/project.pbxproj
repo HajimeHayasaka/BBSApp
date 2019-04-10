@@ -11,6 +11,7 @@
 		2B1855082230034900437173 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B1855072230034900437173 /* GoogleService-Info.plist */; };
 		2B18550A223CD7A100437173 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B185509223CD7A100437173 /* RoomViewController.swift */; };
 		2B18550C22471EF600437173 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B18550B22471EF600437173 /* Room.swift */; };
+		2BCCF38722599F77004CE771 /* CustumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCCF38622599F77004CE771 /* CustumTableViewCell.swift */; };
 		2BD87D4D224D0B6800E0CC46 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD87D4C224D0B6800E0CC46 /* Comment.swift */; };
 		2BF2997922196D8D00EB7B14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF2997822196D8D00EB7B14 /* AppDelegate.swift */; };
 		2BF2997B22196D8D00EB7B14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF2997A22196D8D00EB7B14 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		2B1855072230034900437173 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B185509223CD7A100437173 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		2B18550B22471EF600437173 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		2BCCF38622599F77004CE771 /* CustumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustumTableViewCell.swift; sourceTree = "<group>"; };
 		2BD87D4C224D0B6800E0CC46 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		2BF2997522196D8D00EB7B14 /* BBSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF2997822196D8D00EB7B14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				2BF2997822196D8D00EB7B14 /* AppDelegate.swift */,
 				2B185501222FEB5400437173 /* MakeRoomViewController.swift */,
 				2BF2997A22196D8D00EB7B14 /* ViewController.swift */,
+				2BCCF38622599F77004CE771 /* CustumTableViewCell.swift */,
 				2B18550B22471EF600437173 /* Room.swift */,
 				2BD87D4C224D0B6800E0CC46 /* Comment.swift */,
 				2B185509223CD7A100437173 /* RoomViewController.swift */,
@@ -421,6 +424,7 @@
 			files = (
 				2BF2997B22196D8D00EB7B14 /* ViewController.swift in Sources */,
 				2BD87D4D224D0B6800E0CC46 /* Comment.swift in Sources */,
+				2BCCF38722599F77004CE771 /* CustumTableViewCell.swift in Sources */,
 				2B185502222FEB5400437173 /* MakeRoomViewController.swift in Sources */,
 				2BF2997922196D8D00EB7B14 /* AppDelegate.swift in Sources */,
 				2B18550A223CD7A100437173 /* RoomViewController.swift in Sources */,
